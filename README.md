@@ -1,4 +1,4 @@
-# Activity Tracker Pro 📊
+# Activity Tracker Pro
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -9,7 +9,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
   - [Intelligent Tracking](#intelligent-tracking)
@@ -40,7 +40,7 @@
 
 ---
 
-## 🌟 Features
+## Features
 
 ### Intelligent Tracking
 - **Smart Categorization**: Automatically distinguishes between:
@@ -71,7 +71,7 @@
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The system is built with a modular architecture ensuring reliability and scalability:
 
@@ -87,7 +87,7 @@ activity-tracker-pro/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Windows 10/11** (Required for Watcher - needs GUI access)
@@ -147,7 +147,7 @@ activity-tracker-pro/
 
 ---
 
-## 📝 Usage
+## Usage
 
 ### Keyboard Shortcuts
 | Shortcut | Action |
@@ -221,7 +221,7 @@ MEDIUM_SCORE = 50
 
 ---
 
-## 📊 Database Schema
+## Database Schema
 
 ### Sessions Table
 - **Tracks**: Every 30-second window
@@ -239,7 +239,7 @@ MEDIUM_SCORE = 50
 
 ---
 
-## 🐳 Docker Notes
+## Docker Notes
 
 ### Why Watcher Runs on Host
 Docker containers **cannot access Windows GUI APIs** (pygetwindow, keyboard). The watcher must run natively on Windows to:
@@ -269,7 +269,7 @@ docker-compose down
 
 ---
 
-## 🎯 Productivity Metrics Explained
+## Productivity Metrics Explained
 
 ### Focus Score (0-100)
 Measures concentration quality:
@@ -302,7 +302,7 @@ Continuous `PRIMARY_WORK` periods with:
 
 ---
 
-## 🔐 Privacy & Security
+## Privacy & Security
 
 - **Local Data**: All data stays local in a SQLite database on your machine.
 - **No Telemetry**: Zero data leaves your system (except AI API calls).
@@ -313,7 +313,7 @@ Continuous `PRIMARY_WORK` periods with:
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Watcher Issues
 
@@ -341,7 +341,7 @@ Continuous `PRIMARY_WORK` periods with:
 
 ---
 
-## 📈 Roadmap
+## Roadmap
 
 - [ ] Web-based configuration UI
 - [ ] Export reports to PDF
@@ -355,7 +355,7 @@ Continuous `PRIMARY_WORK` periods with:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 1.  Fork the repository.
@@ -368,7 +368,7 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
@@ -376,7 +376,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Streamlit](https://streamlit.io/) for the amazing dashboard framework.
 - [Plotly](https://plotly.com/) for interactive visualizations.
@@ -386,10 +386,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 📞 Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/aliasghar5642/Activity-Tracker/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/aliasghar5642/Activity-Tracker/discussions)
+- **LinkedIn**: [LinkedIn Account](https://www.linkedin.com/in/aliasgharbagheri/)
 
 ---
 
