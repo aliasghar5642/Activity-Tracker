@@ -1,6 +1,44 @@
 # Activity Tracker Pro 📊
 
-Production-grade activity tracking system with intelligent categorization, Docker deployment, and AI-powered insights.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io/)
+
+**Activity Tracker Pro** is a production-grade activity tracking system designed for productivity enthusiasts. It features intelligent categorization, Docker deployment, and AI-powered insights to help you track smart, work smarter, and live better.
+
+---
+
+## 📑 Table of Contents
+
+- [Features](#-features)
+  - [Intelligent Tracking](#intelligent-tracking)
+  - [Advanced Analytics](#advanced-analytics)
+  - [Production Ready](#production-ready)
+  - [AI Insights](#ai-insights)
+- [Architecture](#-architecture)
+- [Quick Start](#-quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#-usage)
+  - [Keyboard Shortcuts](#keyboard-shortcuts)
+  - [System Tray Icon](#system-tray-icon)
+  - [Dashboard Features](#dashboard-features)
+- [Configuration](#-configuration)
+  - [Watcher Configuration](#watcher-configuration-watcherconfigpy)
+  - [Dashboard Configuration](#dashboard-configuration-dashboardconfigpy)
+- [Database Schema](#-database-schema)
+- [Docker Notes](#-docker-notes)
+- [Productivity Metrics Explained](#-productivity-metrics-explained)
+- [Privacy & Security](#-privacy--security)
+- [Troubleshooting](#-troubleshooting)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
+- [Support](#-support)
+
+---
 
 ## 🌟 Features
 
@@ -10,7 +48,7 @@ Production-grade activity tracking system with intelligent categorization, Docke
   - **Secondary Work**: Telegram, Slack, Spotify (supportive tools)
   - **Browser Intelligence**: Detects work vs. leisure domains
   - **Auto-Idle Detection**: No activity for 5 minutes = automatic idle
-  
+
 ### Advanced Analytics
 - **Deep Work Sessions**: Tracks focused work periods (10+ min, 80%+ active)
 - **Productivity Scores**: Focus, Efficiency, Time ROI metrics
@@ -29,90 +67,110 @@ Production-grade activity tracking system with intelligent categorization, Docke
 - **Actionable Recommendations**: Data-driven improvement suggestions
 - **Trend Analysis**: Pattern recognition and forecasting
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 🏗️ Architecture
+
+The system is built with a modular architecture ensuring reliability and scalability:
 
 ```
 activity-tracker-pro/
-├── watcher/          # Background monitoring service
-├── dashboard/        # Streamlit analytics interface
+├── watcher/          # Background monitoring service (Windows Native)
+├── dashboard/        # Streamlit analytics interface (Dockerized)
 ├── shared/           # Database initialization
 └── data/             # Persistent SQLite storage
 ```
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Windows 10/11** (for watcher - requires GUI access)
-- **Docker Desktop** (for dashboard)
-- **Python 3.11+** (for local watcher)
+- **Windows 10/11** (Required for Watcher - needs GUI access)
+- **Docker Desktop** (Recommended for Dashboard)
+- **Python 3.11+** (For local Watcher execution)
 
 ### Installation
 
-1. **Clone the repository**
-```bash
-git clone <repo-url>
-cd activity-tracker-pro
-```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/aliasghar5642/Activity-Tracker.git
+    cd Activity-Tracker
+    ```
 
-2. **Configure environment**
-```bash
-cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY (optional)
-```
+2.  **Configure environment**
+    ```bash
+    cp .env.example .env
+    # Edit .env and add your GEMINI_API_KEY (optional)
+    ```
 
-3. **Start the system**
+3.  **Start the system**
 
-#### Option A: Windows Native Watcher + Docker Dashboard (Recommended)
+    #### Option A: Windows Native Watcher + Docker Dashboard (Recommended)
 
-**Terminal 1: Run Watcher on Windows**
-```bash
-cd watcher
-pip install -r requirements.txt
-python watcher.py
-```
+    **Terminal 1: Run Watcher on Windows**
+    ```bash
+    cd watcher
+    pip install -r requirements.txt
+    python watcher.py
+    ```
 
-**Terminal 2: Run Dashboard in Docker**
-```bash
-docker-compose up dashboard
-```
+    **Terminal 2: Run Dashboard in Docker**
+    ```bash
+    docker-compose up dashboard
+    ```
 
-#### Option B: Everything on Windows (No Docker)
+    #### Option B: Everything on Windows (No Docker)
 
-**Terminal 1: Watcher**
-```bash
-cd watcher
-pip install -r requirements.txt
-python watcher.py
-```
+    **Terminal 1: Watcher**
+    ```bash
+    cd watcher
+    pip install -r requirements.txt
+    python watcher.py
+    ```
 
-**Terminal 2: Dashboard**
-```bash
-cd dashboard
-pip install -r requirements.txt
-streamlit run app.py
-```
+    **Terminal 2: Dashboard**
+    ```bash
+    cd dashboard
+    pip install -r requirements.txt
+    streamlit run app.py
+    ```
 
-4. **Access Dashboard**
-Open browser: http://localhost:8501
+4.  **Access Dashboard**
+    Open your browser and navigate to: [http://localhost:8501](http://localhost:8501)
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 📝 Usage
 
 ### Keyboard Shortcuts
-- `Ctrl+Alt+Shift+I` - Start manual idle mode
-- `Ctrl+Alt+Shift+O` - End idle mode
-- `Ctrl+Alt+Shift+P` - Pause/Resume tracking
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+Alt+Shift+I` | Start manual idle mode |
+| `Ctrl+Alt+Shift+O` | End idle mode |
+| `Ctrl+Alt+Shift+P` | Pause/Resume tracking |
 
 ### System Tray Icon
-- **Green** 🟢 - Actively tracking
-- **Red** 🔴 - Idle mode
-- **Gray** ⚪ - Paused
+- 🟢 **Green**: Actively tracking
+- 🔴 **Red**: Idle mode
+- ⚪ **Gray**: Paused
 
 ### Dashboard Features
-1. **Time Period Selector**: View last 1-90 days
-2. **Real-time Metrics**: KPIs update every 30 seconds
-3. **Interactive Charts**: Hover for detailed info
-4. **AI Analysis**: Click "Generate AI Analysis" for insights
-5. **Data Export**: Download detailed breakdowns
+1.  **Time Period Selector**: View last 1-90 days
+2.  **Real-time Metrics**: KPIs update every 30 seconds
+3.  **Interactive Charts**: Hover for detailed info
+4.  **AI Analysis**: Click "Generate AI Analysis" for insights
+5.  **Data Export**: Download detailed breakdowns
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 🔧 Configuration
 
@@ -159,19 +217,27 @@ GOOD_SCORE = 70
 MEDIUM_SCORE = 50
 ```
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 📊 Database Schema
 
 ### Sessions Table
-- Tracks every 30-second window
-- Categories: PRIMARY_WORK, SECONDARY_WORK, BROWSER_WORK, BROWSER_NONWORK, IDLE
-- Metrics: duration, foreground time, productivity score, focus session flag
+- **Tracks**: Every 30-second window
+- **Categories**: `PRIMARY_WORK`, `SECONDARY_WORK`, `BROWSER_WORK`, `BROWSER_NONWORK`, `IDLE`
+- **Metrics**: Duration, foreground time, productivity score, focus session flag
 
 ### Idle Periods Table
-- Tracks manual and automatic idle periods
-- Reason: manual, auto, shutdown
+- **Tracks**: Manual and automatic idle periods
+- **Reason**: Manual, auto, shutdown
 
 ### System Events Table
-- Logs: startup, shutdown, pause, resume events
+- **Logs**: Startup, shutdown, pause, resume events
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 🐳 Docker Notes
 
@@ -199,6 +265,10 @@ docker-compose up --build dashboard
 docker-compose down
 ```
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 🎯 Productivity Metrics Explained
 
 ### Focus Score (0-100)
@@ -208,56 +278,68 @@ Measures concentration quality:
 - **50-69**: Medium - Fragmented attention
 - **0-49**: Poor - High distraction level
 
-Formula: `(Primary Work Ratio × 60) + (Focus Quality × 40)`
+**Formula**: `(Primary Work Ratio × 60) + (Focus Quality × 40)`
 
 ### Efficiency Score (0-100)
 Percentage of tracked time spent on work:
-- Work = PRIMARY_WORK + SECONDARY_WORK + BROWSER_WORK
-- Formula: `(Work Time / Total Time) × 100`
+- **Work** = `PRIMARY_WORK` + `SECONDARY_WORK` + `BROWSER_WORK`
+- **Formula**: `(Work Time / Total Time) × 100`
 
 ### Time ROI (0-300+)
 Value generated per minute tracked:
-- Primary Work: 3x multiplier
-- Browser Work: 1x multiplier
-- Secondary Work: 0.8x multiplier
-- Formula: `(Weighted Value / Total Time) × 100`
+- **Primary Work**: 3x multiplier
+- **Browser Work**: 1x multiplier
+- **Secondary Work**: 0.8x multiplier
+- **Formula**: `(Weighted Value / Total Time) × 100`
 
 ### Deep Work Sessions
-Continuous PRIMARY_WORK periods with:
+Continuous `PRIMARY_WORK` periods with:
 - Duration ≥ 10 minutes
 - Foreground ratio ≥ 80%
 - Minimal context switches
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 🔐 Privacy & Security
 
-- **All data stays local**: SQLite database on your machine
-- **No telemetry**: Zero data leaves your system (except AI API calls)
-- **Gemini API**: Only sends aggregated metrics, not raw data
-- **Open source**: Audit the code yourself
+- **Local Data**: All data stays local in a SQLite database on your machine.
+- **No Telemetry**: Zero data leaves your system (except AI API calls).
+- **Gemini API**: Only sends aggregated metrics, not raw data.
+- **Open Source**: Audit the code yourself.
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 🛠️ Troubleshooting
 
 ### Watcher Issues
 
 **Problem**: Hotkeys not working
-- **Solution**: Run as administrator
+- **Solution**: Run as administrator.
 
 **Problem**: No data recorded
-- **Solution**: Check logs in `~/ActivityTracker/logs/watcher.log`
+- **Solution**: Check logs in `~/ActivityTracker/logs/watcher.log`.
 
 **Problem**: High CPU usage
-- **Solution**: Increase `SAMPLE_INTERVAL` in config
+- **Solution**: Increase `SAMPLE_INTERVAL` in config.
 
 ### Dashboard Issues
 
 **Problem**: Database not found
-- **Solution**: Ensure watcher has run for at least 30 seconds
+- **Solution**: Ensure watcher has run for at least 30 seconds.
 
 **Problem**: Charts not loading
-- **Solution**: Wait for more data (minimum 1 hour recommended)
+- **Solution**: Wait for more data (minimum 1 hour recommended).
 
 **Problem**: AI insights unavailable
-- **Solution**: Add `GEMINI_API_KEY` to `.env` file
+- **Solution**: Add `GEMINI_API_KEY` to `.env` file.
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 📈 Roadmap
 
@@ -269,28 +351,45 @@ Continuous PRIMARY_WORK periods with:
 - [ ] Browser extension
 - [ ] Pomodoro timer integration
 
+[Back to Top](#-table-of-contents)
+
+---
+
 ## 🤝 Contributing
 
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+Contributions are welcome! Please follow these steps:
+1.  Fork the repository.
+2.  Create a feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 📄 License
 
-MIT License - See LICENSE file
+Distributed under the MIT License. See `LICENSE` for more information.
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 🙏 Acknowledgments
 
-- Streamlit for the amazing dashboard framework
-- Plotly for interactive visualizations
-- Google Gemini for AI capabilities
+- [Streamlit](https://streamlit.io/) for the amazing dashboard framework.
+- [Plotly](https://plotly.com/) for interactive visualizations.
+- [Google Gemini](https://deepmind.google/technologies/gemini/) for AI capabilities.
+
+[Back to Top](#-table-of-contents)
+
+---
 
 ## 📞 Support
 
-- **Issues**: GitHub Issues
-- **Discussions**: GitHub Discussions
-- **Email**: support@example.com
+- **Issues**: [GitHub Issues](https://github.com/aliasghar5642/Activity-Tracker/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/aliasghar5642/Activity-Tracker/discussions)
 
 ---
 
